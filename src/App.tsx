@@ -1,5 +1,6 @@
 import "./App.css";
-import { ProjectListScreen } from "./screens/projects-list";
+import { ProjectListScreen } from './screens/projects-list/index';
+
 
 function App() {
   return (
