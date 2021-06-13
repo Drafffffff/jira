@@ -38,3 +38,25 @@ export const useDebounce = <V>(value: V, delay?: number) => {
   }, [value, delay]);
   return debouncedValue;
 };
+
+export const useArray = <P>(initValue: P[]) => {
+  const [value, setValue] = useState(initValue);
+  const add = (obj: P) => {
+    setValue([...value, obj]);
+  };
+  const clear = () => {
+    setValue([]);
+  };
+
+  const removeIndex = (index: number) => {
+    const tmp = [...value];
+    tmp.splice(index, 1)
+    setValue(tmp);
+  };
+  return {
+    value: value,
+    add: add,
+    clear: clear,
+    removeIndex,
+  };
+};
